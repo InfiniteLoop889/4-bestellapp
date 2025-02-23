@@ -1,0 +1,1 @@
+"burger_beef.jpg","burger_chicken.jpg","burger_xxl.jpg","chicken.jpg","durum.jpg","falaffel.jpg","favicon.ico","Logo.png","pizza_funghi.jpg","pizza_margerita.jpg","pizza_salami.jpg","salad.jpg","salad_greek.jpg","salad_tuna.jpg"
