@@ -9,12 +9,19 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
   /* font: inherit; */
 }
 
 /* html {
   color-scheme: dark light;
 } */
+
+/* a {
+  text-decoration: none;
+} */
+
+/* -------------------- general styling -------------------- */
 
 body {
   min-height: 100vh;
