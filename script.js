@@ -1,3 +1,5 @@
+// ---------------------- Main content from db.js ----------------------
+
 const dishesWrapper = document.getElementById("dishes-wrapper");
 let allDishesHTML = "";
 
@@ -9,3 +11,5 @@ for (let dish in dishes) {
     dishesWrapper.innerHTML = allDishesHTML;
   });
 }
+
+// ---------------------- dish button ----------------------

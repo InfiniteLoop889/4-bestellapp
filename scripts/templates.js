@@ -7,9 +7,9 @@ function createDishSection(dishData) {
             <p>${dishData.description}</p>
             <p class="dish-info-price">${dishData.price.toFixed(2)} CHF</p>
         </div>
-        <div class="dish-button">
+        <button class="dish-button">
             <span class="cross">+</span>
-        </div>
+        </button>
     </div>
   `;
 }
