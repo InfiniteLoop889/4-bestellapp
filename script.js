@@ -1,15 +1,41 @@
 // ---------------------- Main content from db.js ----------------------
 
+// variables
+
 const dishesWrapper = document.getElementById("dishes-wrapper");
-let allDishesHTML = "";
 
-for (let dish in dishes) {
-  let dishData = dishes[dish];
+// functions
 
-  dishData.forEach((item) => {
-    allDishesHTML += createDishSection(item);
-    dishesWrapper.innerHTML = allDishesHTML;
+function renderDishes() {
+  dishesWrapper.innerHTML = "";
+
+  for (let dish in dishes) {
+    let dishData = dishes[dish];
+
+    dishData.forEach((dishItem) => {
+      dishesWrapper.innerHTML += createDishSection(dishItem);
+    });
+  }
+}
+
+// ---------------------- cart section ----------------------
+
+// variables
+
+const basketItems = document.getElementById("basket-items");
+let cart = [1, 2, 3, "asd"];
+
+// functions
+
+function renderCart() {
+  basketItems.innerHTML = "";
+
+  cart.forEach((cartItem) => {
+    basketItems.innerHTML += createCartItem(cartItem);
   });
 }
 
-// ---------------------- dish button ----------------------
+function addToCart(item) {
+  cart.push(item);
+  renderCart();
+}

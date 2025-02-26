@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/icons/Favicon/favicon-32x32.png" />
 </head>
 
-<body>
+<body onload="renderDishes(), renderCart()">
     <header>
         <img src="./assets/icons/Logo/Logo.png" alt="Bestell App Logo" />
     </header>
@@ -21,9 +21,10 @@
             <div id="dishes-wrapper"></div>
         </section>
         <section class="basket-wrapper">
-            <div class="basket">
+            <div class="basket-header">
                 <h3>Warenkorb</h3>
             </div>
+            <div id="basket-items"></div>
         </section>
     </main>
 

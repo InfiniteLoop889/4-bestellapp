@@ -1,3 +1,5 @@
+// --------------------- render dish items ---------------------
+
 function createDishSection(dishData) {
   return `
     <div class="dish-container">
@@ -7,9 +9,17 @@ function createDishSection(dishData) {
             <p>${dishData.description}</p>
             <p class="dish-info-price">${dishData.price.toFixed(2)} CHF</p>
         </div>
-        <button class="dish-button">
+        <button class="dish-button" onclick="addToCart('${dishData.name}')">
             <span class="cross">+</span>
         </button>
     </div>
+  `;
+}
+
+// --------------------- render basket items ---------------------
+
+function createCartItem(cartItem) {
+  return `
+    <h3>${cartItem}</h3>
   `;
 }
