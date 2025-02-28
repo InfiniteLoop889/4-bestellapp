@@ -83,7 +83,7 @@ h1 {
 }
 
 .content {
-  /* width: calc(100% - 300px); */
+  width: calc(100% - 300px);
 }
 
 .img-top {
@@ -179,6 +179,15 @@ h1 {
 #cart-items h3,
 p {
   padding: 10px 0 0 15px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-item button {
+  width: 20px;
 }
 
 /* -------------------- footer -------------------- */
