@@ -12,7 +12,6 @@ function createDishSection(dishData) {
         <button class="dish-button" onclick="addToCart({
             name: '${dishData.name}',
             price: ${dishData.price.toFixed(2)},
-            amount: ${dishData.amount}
           });">
             <span class="cross">+</span>
         </button>
@@ -32,7 +31,7 @@ function createCartItem(cartItem, index) {
         <p>${cartItem.amount}</p>
         <button class="increase" onclick="increaseAmt(${index})">+</button>
         <p>${cartItem.price.toFixed(2)}</p>
-        <button onclick="removeFromCart(${index})">x</button>
+        <button onclick="removeItem(${index})">x</button>
     </div>
   `;
 }

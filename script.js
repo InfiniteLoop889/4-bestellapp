@@ -21,8 +21,6 @@ let cart = [
 ];
 
 function renderCart() {
-  if (cart.length === 0) return;
-
   const basketItems = document.getElementById("cart-items");
   basketItems.innerHTML = "";
 
@@ -32,13 +30,24 @@ function renderCart() {
 }
 
 function addToCart(item) {
-  item.amount += 1;
-  cart.push(item);
+  const existingItem = cart.find((cartItem) => cartItem.name === item.name);
+
+  if (existingItem) {
+    ++existingItem.amount;
+  } else {
+    cart.push({ ...item, amount: 1 });
+  }
+
   renderCart();
 }
 
 function decreaseAmt(index) {
   --cart[index].amount;
+
+  if (cart[index].amount === 0) {
+    cart.splice(index, 1);
+  }
+
   renderCart();
 }
 
@@ -47,7 +56,7 @@ function increaseAmt(index) {
   renderCart();
 }
 
-function removeFromCart(index) {
+function removeItem(index) {
   cart.splice(index, 1);
   renderCart();
 }
