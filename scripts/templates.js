@@ -7,11 +7,11 @@ function createDishSection(dishData) {
             <h3>${dishData.name}</h3>
             <!-- <img src="./img/${dishData.image}" alt="${dishData.name}"> -->
             <p>${dishData.description}</p>
-            <p class="dish-info-price">${dishData.price.toFixed(2)} CHF</p>
+            <p class="dish-info-price">${dishData.basePrice.toFixed(2)} CHF</p>
         </div>
         <button class="dish-button" onclick="addToCart({
             name: '${dishData.name}',
-            price: ${dishData.price.toFixed(2)},
+            price: ${dishData.basePrice.toFixed(2)},
           });">
             <span class="cross">+</span>
         </button>
@@ -19,19 +19,19 @@ function createDishSection(dishData) {
   `;
 }
 
-// --------------------- create basket items ---------------------
+// --------------------- create cart items ---------------------
 
 function createCartItem(cartItem, index) {
   return `
-    <div>
-        <h3>${cartItem.name}</h3>
-    </div>
     <div class="cart-item">
-        <button class="decrease" onclick="decreaseAmt(${index})">-</button>
-        <p>${cartItem.amount}</p>
-        <button class="increase" onclick="increaseAmt(${index})">+</button>
-        <p>${cartItem.price.toFixed(2)}</p>
-        <button onclick="removeItem(${index})">x</button>
+        <h3>${cartItem.name}</h3>
+        <div class="cart-item-info">
+            <button class="decrease" onclick="decreaseAmt(${index})">-</button>
+            <p>${cartItem.amount}</p>
+            <button class="increase" onclick="increaseAmt(${index})">+</button>
+            <p>${cartItem.price.toFixed(2)}</p>
+            <button onclick="removeItem(${index})">x</button>
+        </div>
     </div>
   `;
 }

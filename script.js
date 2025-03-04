@@ -15,34 +15,58 @@ function renderDishes() {
 
 // ---------------------- cart section ----------------------
 
-let cart = [
-  { name: "asd", price: 3.5, amount: 4 },
-  { name: "fds", price: 5.5, amount: 2 },
-];
+// let cart = [
+//   { name: "asd", basePrice: 3.5, price: 3.5, amount: 1 },
+//   { name: "fds", basePrice: 5.5, price: 5.5, amount: 1 },
+// ];
+
+let cart = [];
 
 function renderCart() {
   const basketItems = document.getElementById("cart-items");
+  const cartTotalWrapper = document.getElementById("cart-total-wrapper");
+  const totalPriceSpan = document.getElementById("total");
+
   basketItems.innerHTML = "";
 
   cart.forEach((cartItem, index) => {
     basketItems.innerHTML += createCartItem(cartItem, index);
   });
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  console.log(total);
+
+  if (cart.length > 0) {
+    totalPriceSpan.textContent = `${total.toFixed(2)} CHF`;
+    cartTotalWrapper.classList.add("visible");
+  } else {
+    cartTotalWrapper.classList.remove("visible");
+  }
+
+  adjustCartItemsTop();
 }
 
 function addToCart(item) {
   const existingItem = cart.find((cartItem) => cartItem.name === item.name);
 
   if (existingItem) {
-    ++existingItem.amount;
+    existingItem.amount += 1;
+    existingItem.price = existingItem.basePrice * existingItem.amount;
   } else {
-    cart.push({ ...item, amount: 1 });
+    cart.push({
+      name: item.name,
+      basePrice: item.price,
+      price: item.price,
+      amount: 1,
+    });
   }
 
   renderCart();
 }
 
 function decreaseAmt(index) {
-  --cart[index].amount;
+  cart[index].amount -= 1;
+  updatePrice(index);
 
   if (cart[index].amount === 0) {
     cart.splice(index, 1);
@@ -52,13 +76,18 @@ function decreaseAmt(index) {
 }
 
 function increaseAmt(index) {
-  ++cart[index].amount;
+  cart[index].amount += 1;
+  updatePrice(index);
   renderCart();
 }
 
 function removeItem(index) {
   cart.splice(index, 1);
   renderCart();
+}
+
+function updatePrice(index) {
+  cart[index].price = cart[index].basePrice * cart[index].amount;
 }
 
 // cart-items top calcualtion for correct sticky behaviour
@@ -68,7 +97,8 @@ function adjustCartItemsTop() {
   const cartItems = document.getElementById("cart-items");
   const headerHeight = cartHeader.offsetHeight;
   cartItems.style.top = `${headerHeight}px`;
+  window.addEventListener("resize", adjustCartItemsTop);
 }
 
-adjustCartItemsTop();
-window.addEventListener("resize", adjustCartItemsTop);
+// adjustCartItemsTop();
+// window.addEventListener("resize", adjustCartItemsTop);
