@@ -20,20 +20,25 @@
             <div class="img-top"><img src="./assets/img/title_img.jpg" alt="Burger Menu" /></div>
             <div id="dishes-wrapper"></div>
         </section>
-        <section class="cart-wrapper">
-            <div class="cart-header">
-                <h2>Warenkorb</h2>
-            </div>
-            <div id="cart-items"></div>
-            <div id="cart-total-wrapper" class="cart-total-wrapper">
-                <div>Zwischensumme <span id="subtotal">0.00 CHF</span></div>
-                <div>Versandkosten <span id="shipping">0.00 CHF</span></div>
-                <div>Gesamtpreis <span id="total">0.00 CHF</span></div>
-            </div>
-        </section>
+        <div class="outer-cart-wrapper">
+            <section class="sticky-cart-wrapper">
+                <div class="cart-header">
+                    <h2>Warenkorb</h2>
+                </div>
+                <div id="cart-items"></div>
+                <div id="cart-total-wrapper" class="cart-total-wrapper">
+                    <div>Zwischensumme <span id="subtotal">0.00 CHF</span></div>
+                    <div>Versandkosten <span id="shipping">0.00 CHF</span></div>
+                    <div>Gesamtpreis <span id="total">0.00 CHF</span></div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
-    <footer></footer>
+    <footer>
+        <p>© 2025 Bestell App</p>
+    </footer>
 
     <script src="./scripts/db.js"></script>
     <script src="./scripts/templates.js"></script>

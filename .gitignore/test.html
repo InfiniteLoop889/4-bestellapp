@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Cart bis Footer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 150px;
+        }
+
+        /* Flexbox Container */
+        .content-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 20px;
+            flex: 1;
+            /* Nimmt den verfügbaren Platz ein */
+            min-height: calc(100vh - 60px);
+            /* Abzug für Header + Footer */
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .img-top img {
+            width: 100%;
+            height: auto;
+        }
+
+        #dishes-wrapper {
+            margin-top: 20px;
+        }
+
+        .dish-item {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        /* Sticky Cart Wrapper */
+        .cart-wrapper {
+            position: sticky;
+            top: 20px;
+            width: 300px;
+            background-color: #fff;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: calc(100vh - 40px);
+            /* Höhe abzüglich top-Abstand und etwas Puffer */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-header {
+            margin-bottom: 15px;
+        }
+
+        #cart-items {
+            flex: 1;
+            /* Nimmt den verfügbaren Platz ein */
+            overflow-y: auto;
+            /* Scrollbar bei Bedarf */
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-total-wrapper {
+            padding-top: 10px;
+        }
+
+        .cart-total-wrapper div {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Bestell App Logo" />
+    </header>
+
+    <main class="content-wrapper">
+        <section class="content">
+            <div class="img-top">
+                <img src="https://via.placeholder.com/800x300?text=Burger+Menu" alt="Burger Menu" />
+            </div>
+            <div id="dishes-wrapper">
+                <div class="dish-item">Cheeseburger - 12.50 CHF</div>
+                <div class="dish-item">Veggie Burger - 11.00 CHF</div>
+                <div class="dish-item">Pommes Frites - 5.00 CHF</div>
+                <div class="dish-item">Cola - 3.50 CHF</div>
+                <div class="dish-item">Salat - 8.00 CHF</div>
+                <div class="dish-item">Pizza Margherita - 14.00 CHF</div>
+                <div class="dish-item">Eiscreme - 4.50 CHF</div>
+            </div>
+        </section>
+        <section class="cart-wrapper">
+            <div class="cart-header">
+                <h2>Warenkorb</h2>
+            </div>
+            <div id="cart-items">
+                <div class="cart-item">
+                    <span>Cheeseburger</span>
+                    <span>12.50 CHF</span>
+                </div>
+                <div class="cart-item">
+                    <span>Pommes Frites</span>
+                    <span>5.00 CHF</span>
+                </div>
+            </div>
+            <div id="cart-total-wrapper" class="cart-total-wrapper">
+                <div>Zwischensumme <span id="subtotal">17.50 CHF</span></div>
+                <div>Versandkosten <span id="shipping">2.50 CHF</span></div>
+                <div>Gesamtpreis <span id="total">20.00 CHF</span></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Bestell App</p>
+    </footer>
+</body>
+
+</html>

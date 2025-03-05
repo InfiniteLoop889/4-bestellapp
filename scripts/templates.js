@@ -2,7 +2,7 @@
 
 function createDishSection(dishData) {
   return `
-    <div class="dish-container">
+    <div class="dish-item">
         <div class="dish-info">
             <h3>${dishData.name}</h3>
             <!-- <img src="./img/${dishData.image}" alt="${dishData.name}"> -->

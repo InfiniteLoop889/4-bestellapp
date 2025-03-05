@@ -99,6 +99,3 @@ function adjustCartItemsTop() {
   cartItems.style.top = `${headerHeight}px`;
   window.addEventListener("resize", adjustCartItemsTop);
 }
-
-// adjustCartItemsTop();
-// window.addEventListener("resize", adjustCartItemsTop);
