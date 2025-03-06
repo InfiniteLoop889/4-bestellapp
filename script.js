@@ -1,10 +1,17 @@
-// ---------------------- main content from db.js ----------------------
+// -----------------------------------------------------------
+// main content from db.js
+// -----------------------------------------------------------
 
 function renderDishes() {
+  const catergoriesWrapper = document.getElementById("catergories-wrapper");
   const dishesWrapper = document.getElementById("dishes-wrapper");
+  catergoriesWrapper.innerHTML = "";
   dishesWrapper.innerHTML = "";
 
   for (let dish in dishes) {
+    catergoriesWrapper.innerHTML += createCategory(dish);
+    console.log(catergoriesWrapper);
+
     let dishData = dishes[dish];
 
     dishData.forEach((dishItem) => {
@@ -13,14 +20,17 @@ function renderDishes() {
   }
 }
 
-// ---------------------- cart section ----------------------
+// -----------------------------------------------------------
+// cart section
+// -----------------------------------------------------------
 
-// let cart = [
-//   { name: "asd", basePrice: 3.5, price: 3.5, amount: 1 },
-//   { name: "fds", basePrice: 5.5, price: 5.5, amount: 1 },
-// ];
+let cart = [
+  { name: "asd", basePrice: 3.5, price: 3.5, amount: 1 },
+  { name: "fds", basePrice: 5.5, price: 5.5, amount: 1 },
+  { name: "asdv", basePrice: 6.5, price: 6.5, amount: 1 },
+];
 
-let cart = [];
+// let cart = [];
 
 function renderCart() {
   const basketItems = document.getElementById("cart-items");
@@ -34,7 +44,7 @@ function renderCart() {
   });
 
   const total = cart.reduce((sum, item) => sum + item.price, 0);
-  console.log(total);
+  // console.log(total);
 
   if (cart.length > 0) {
     totalPriceSpan.textContent = `${total.toFixed(2)} CHF`;
@@ -92,10 +102,10 @@ function updatePrice(index) {
 
 // cart-items top calcualtion for correct sticky behaviour
 
-function adjustCartItemsTop() {
-  const cartHeader = document.querySelector(".cart-header");
-  const cartItems = document.getElementById("cart-items");
-  const headerHeight = cartHeader.offsetHeight;
-  cartItems.style.top = `${headerHeight}px`;
-  window.addEventListener("resize", adjustCartItemsTop);
-}
+// function adjustCartItemsTop() {
+//   const cartHeader = document.querySelector(".cart-header");
+//   const cartItems = document.getElementById("cart-items");
+//   const headerHeight = cartHeader.offsetHeight;
+//   cartItems.style.top = `${headerHeight}px`;
+//   window.addEventListener("resize", adjustCartItemsTop);
+// }

@@ -1,4 +1,14 @@
-// --------------------- create dish items ---------------------
+// -----------------------------------------------------------
+// create category
+// -----------------------------------------------------------
+
+function createCategory(dish) {
+  return `<div class="category">${dish}</div>`;
+}
+
+// -----------------------------------------------------------
+// create dish items
+// -----------------------------------------------------------
 
 function createDishSection(dishData) {
   return `
@@ -19,7 +29,9 @@ function createDishSection(dishData) {
   `;
 }
 
-// --------------------- create cart items ---------------------
+// -----------------------------------------------------------
+// create cart items
+// -----------------------------------------------------------
 
 function createCartItem(cartItem, index) {
   return `
