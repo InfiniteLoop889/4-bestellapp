@@ -3,14 +3,14 @@
 // -----------------------------------------------------------
 
 function renderDishes() {
-  const catergoriesWrapper = document.getElementById("catergories-wrapper");
+  const categoriesWrapper = document.getElementById("categories-wrapper");
   const dishesWrapper = document.getElementById("dishes-wrapper");
-  catergoriesWrapper.innerHTML = "";
+  categoriesWrapper.innerHTML = "";
   dishesWrapper.innerHTML = "";
 
   for (let dish in dishes) {
-    catergoriesWrapper.innerHTML += createCategory(dish);
-    console.log(catergoriesWrapper);
+    categoriesWrapper.innerHTML += createCategory(dish);
+    dishesWrapper.innerHTML += createCategogryHeader(dish);
 
     let dishData = dishes[dish];
 
@@ -53,7 +53,7 @@ function renderCart() {
     cartTotalWrapper.classList.remove("visible");
   }
 
-  adjustCartItemsTop();
+  // adjustCartItemsTop();
 }
 
 function addToCart(item) {
@@ -65,8 +65,8 @@ function addToCart(item) {
   } else {
     cart.push({
       name: item.name,
-      basePrice: item.price,
-      price: item.price,
+      basePrice: item.basePrice,
+      price: item.basePrice,
       amount: 1,
     });
   }

@@ -1,4 +1,6 @@
-/* -------------------- CSS reset -------------------- */
+/* ----------------------------------------------------------- */
+/* CSS reset */
+/* ----------------------------------------------------------- */
 
 *,
 *::before,
@@ -27,7 +29,9 @@ select {
   font: inherit;
 }
 
-/* -------------------- general styling -------------------- */
+/* ----------------------------------------------------------- */
+/* general styling */
+/* ----------------------------------------------------------- */
 
 :root {
   --padding20: 20px;
@@ -36,6 +40,7 @@ select {
   --font-size: 1.3rem;
   --sans: sans-serif;
   --max-width-content-section: 1130px;
+  --margin-20-top-bottom: 20px 0 20px 0;
 }
 
 body {
@@ -45,7 +50,9 @@ body {
   flex-direction: column;
 }
 
-/* -------------------- header -------------------- */
+/* ----------------------------------------------------------- */
+/* header */
+/* ----------------------------------------------------------- */
 
 header {
   display: flex;
@@ -60,14 +67,22 @@ header img {
   margin-left: 20px;
 }
 
-/* -------------------- main content-wrapper -------------------- */
+/* ----------------------------------------------------------- */
+/* main content-wrapper */
+/* ----------------------------------------------------------- */
 
 .main-content-wrapper {
   display: flex;
   flex-direction: row;
 }
 
-/* -------------------- category/dish section -------------------- */
+/* ----------------------------------------------------------- */
+/* categories / dishes */
+/* ----------------------------------------------------------- */
+
+h1 {
+  margin: var(--margin-20-top-bottom);
+}
 
 .left-content-wrapper {
   width: calc(100% - 300px);
@@ -84,8 +99,23 @@ header img {
   object-fit: cover;
 }
 
-#catergories-wrapper {
+#categories-wrapper {
   display: flex;
+}
+
+.category-header {
+  padding: 8px 20px;
+  margin: 20px 0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.category-header:hover {
+  background-color: #e4e4e4;
+}
+
+.category-header:nth-child(n + 2) {
+  margin-left: 20px;
 }
 
 .dish-content-wrapper {
@@ -93,6 +123,10 @@ header img {
   margin-right: auto;
   margin-left: auto;
   padding: 0 20px 0 20px;
+}
+
+.category {
+  padding-top: 20px;
 }
 
 .dish-item {
@@ -144,16 +178,18 @@ header img {
   background-color: #e4e4e4;
 }
 
-/* -------------------- cart section -------------------- */
+/* ----------------------------------------------------------- */
+/* cart section */
+/* ----------------------------------------------------------- */
 
-.outer-cart-wrapper {
+.left-cart-wrapper {
   box-shadow: 0px 5px 10px #e4e4e4;
 }
 
 .sticky-cart-wrapper {
   position: sticky;
   top: 0;
-  /* align-self: flex-start; */ /*nicht notwendig wenn outer wrapper vorhanden*/
+  /* align-self: flex-start; */ /*nicht notwendig wenn outer wrapper vorhanden?!*/
   width: 300px;
 }
 
@@ -189,7 +225,9 @@ header img {
   display: block;
 }
 
-/* -------------------- footer -------------------- */
+/* ----------------------------------------------------------- */
+/* footer */
+/* ----------------------------------------------------------- */
 
 footer {
   display: flex;

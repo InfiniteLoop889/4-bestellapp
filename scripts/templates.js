@@ -3,7 +3,19 @@
 // -----------------------------------------------------------
 
 function createCategory(dish) {
-  return `<div class="category">${dish}</div>`;
+  return `
+      <div class="category-header">${dish}</div>
+  `;
+}
+
+// -----------------------------------------------------------
+// create categogry header
+// -----------------------------------------------------------
+
+function createCategogryHeader(categogry) {
+  return `
+      <div class="category"><h2>${categogry}</h2></div>
+  `;
 }
 
 // -----------------------------------------------------------
@@ -21,7 +33,7 @@ function createDishSection(dishData) {
         </div>
         <button class="dish-button" onclick="addToCart({
             name: '${dishData.name}',
-            price: ${dishData.basePrice.toFixed(2)},
+            basePrice: ${dishData.basePrice.toFixed(2)},
           });">
             <span class="cross">+</span>
         </button>
