@@ -2,9 +2,9 @@
 // create category
 // -----------------------------------------------------------
 
-function createCategory(dish) {
+function createCategory(categogry) {
   return `
-      <div class="category-header">${dish}</div>
+      <a href="#${categogry}" class="category">${categogry}</a>
   `;
 }
 
@@ -14,7 +14,7 @@ function createCategory(dish) {
 
 function createCategogryHeader(categogry) {
   return `
-      <div class="category"><h2>${categogry}</h2></div>
+      <div id="${categogry}" class="category-header"><h2>${categogry}</h2></div>
   `;
 }
 
