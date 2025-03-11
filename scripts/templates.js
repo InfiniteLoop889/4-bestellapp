@@ -14,6 +14,7 @@ function createCategory(categogry) {
 
 function createCategogryHeader(categogry) {
   return `
+      
       <div id="${categogry}" class="category-header"><h2>${categogry}</h2></div>
   `;
 }
@@ -55,7 +56,7 @@ function createCartItem(cartItem, index) {
                 <p>${cartItem.amount}</p>
                 <button class="increase" onclick="increaseAmt(${index})">+</button>
             </div>
-            <span class="cart-item-price">${cartItem.price.toFixed(2)}</span>
+            <span class="cart-item-price">${cartItem.price.toFixed(2)} CHF</span>
             <button class="remove-btn" onclick="removeItem(${index})">x</button>
         </div>
     </div>  

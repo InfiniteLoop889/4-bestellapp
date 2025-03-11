@@ -8,11 +8,13 @@ function renderDishes() {
   categoriesWrapper.innerHTML = "";
   dishesWrapper.innerHTML = "";
 
-  for (let dish in dishes) {
-    categoriesWrapper.innerHTML += createCategory(dish);
-    dishesWrapper.innerHTML += createCategogryHeader(dish);
+  for (let category in dishes) {
+    categoriesWrapper.innerHTML += createCategory(category);
+    dishesWrapper.innerHTML += createCategogryHeader(category);
 
-    let dishData = dishes[dish];
+    let categoryData = dishes[category];
+    let dishData = categoryData.items;
+    console.log(categoryData);
 
     dishData.forEach((dishItem) => {
       dishesWrapper.innerHTML += createDishSection(dishItem);
