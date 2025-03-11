@@ -49,13 +49,15 @@ function createCartItem(cartItem, index) {
   return `
     <div class="cart-item">
         <h3>${cartItem.name}</h3>
-        <div class="cart-item-info">
-            <button class="decrease" onclick="decreaseAmt(${index})">-</button>
-            <p>${cartItem.amount}</p>
-            <button class="increase" onclick="increaseAmt(${index})">+</button>
-            <p>${cartItem.price.toFixed(2)}</p>
-            <button onclick="removeItem(${index})">x</button>
+        <div class="cart-item-content">
+            <div class="cart-item-amount">
+                <button class="decrease" onclick="decreaseAmt(${index})">-</button>
+                <p>${cartItem.amount}</p>
+                <button class="increase" onclick="increaseAmt(${index})">+</button>
+            </div>
+            <span class="cart-item-price">${cartItem.price.toFixed(2)}</span>
+            <button class="remove-btn" onclick="removeItem(${index})">x</button>
         </div>
-    </div>
+    </div>  
   `;
 }
