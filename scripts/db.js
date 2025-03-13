@@ -1,6 +1,6 @@
 dishes = {
   Burger: {
-    image: ".assets/img/category_img/burger.jpg",
+    image: "./assets/img/category_img/burger.jpg",
     items: [
       {
         name: "Beef Burger",
@@ -30,7 +30,7 @@ dishes = {
   },
 
   Pizza: {
-    image: ".assets/img/category_img/pizza.jpg",
+    image: "./assets/img/category_img/pizza.jpg",
     items: [
       {
         name: "Pizza Funghi",
@@ -60,7 +60,7 @@ dishes = {
   },
 
   Salate: {
-    image: ".assets/img/category_img/salad.jpg",
+    image: "./assets/img/category_img/salad.jpg",
     items: [
       {
         name: "Grüner Salat",

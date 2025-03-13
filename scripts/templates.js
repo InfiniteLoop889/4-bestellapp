@@ -12,10 +12,10 @@ function createCategory(categogry) {
 // create categogry header
 // -----------------------------------------------------------
 
-function createCategogryHeader(categogry) {
+function createCategogryHeader(categogry, categoryData) {
   return `
-      
-      <div id="${categogry}" class="category-header"><h2>${categogry}</h2></div>
+      <img id="${categogry}" class="category-header-img" src="${categoryData.image}">
+      <div class="category-header"><h2>${categogry}</h2></div>
   `;
 }
 

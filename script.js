@@ -9,12 +9,11 @@ function renderDishes() {
   dishesWrapper.innerHTML = "";
 
   for (let category in dishes) {
-    categoriesWrapper.innerHTML += createCategory(category);
-    dishesWrapper.innerHTML += createCategogryHeader(category);
-
     let categoryData = dishes[category];
     let dishData = categoryData.items;
-    console.log(categoryData);
+
+    categoriesWrapper.innerHTML += createCategory(category);
+    dishesWrapper.innerHTML += createCategogryHeader(category, categoryData);
 
     dishData.forEach((dishItem) => {
       dishesWrapper.innerHTML += createDishSection(dishItem);
@@ -46,7 +45,6 @@ function renderCart() {
   });
 
   const total = cart.reduce((sum, item) => sum + item.price, 0);
-  // console.log(total);
 
   if (cart.length > 0) {
     totalPriceSpan.textContent = `${total.toFixed(2)} CHF`;
@@ -54,8 +52,6 @@ function renderCart() {
   } else {
     cartTotalWrapper.classList.remove("visible");
   }
-
-  // adjustCartItemsTop();
 }
 
 function addToCart(item) {
