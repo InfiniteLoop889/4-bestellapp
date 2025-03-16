@@ -29,24 +29,42 @@
 
         <section class="outer-cart-wrapper">
             <div class="sticky-cart-wrapper">
+
                 <div class="cart-header">
                     <h2>Warenkorb</h2>
                 </div>
-                <div id="cart-items"></div>
-                <div id="cart-total-wrapper" class="cart-total-wrapper">
-                    <div class="cart-total-line">
-                        <div>Zwischensumme</div>
-                        <div id="subtotal">0.00 CHF</div>
+
+                <div id="cart-order-info">
+                    <div id="cart-items"></div>
+
+                    <div id="empty-cart-placeholder">
+                        <img src="./assets/icons/icons8-basket-100.png" alt="Basket">
+                        <h3>Ganz schön leer hier – füge jetzt Artikel hinzu!</h3>
                     </div>
-                    <div class="cart-total-line">
-                        <div>Versandkosten</div>
-                        <div id="shipping">5.00 CHF</div>
-                    </div>
-                    <div class="cart-total-line">
-                        <div>Gesamtpreis</div>
-                        <div id="total">0.00 CHF</div>
+
+                    <div id="cart-total-wrapper" class="cart-total-wrapper">
+                        <div class="cart-total-line">
+                            <div>Zwischensumme</div>
+                            <div id="subtotal">0.00 CHF</div>
+                        </div>
+                        <div class="cart-total-line">
+                            <div>Lieferkosten</div>
+                            <div id="shipping">5.00 CHF</div>
+                        </div>
+                        <div class="cart-total-line">
+                            <div>Gesamtpreis</div>
+                            <div id="total">0.00 CHF</div>
+                        </div>
+                        <div class="order-btn-container">
+                            <button id="order-btn">Bestellen</button>
+                        </div>
                     </div>
                 </div>
+
+                <div id="success-message">
+                    Deine Bestellung war erfolgreich und macht sich in Kürze auf den Weg!
+                </div>
+
             </div>
         </section>
 

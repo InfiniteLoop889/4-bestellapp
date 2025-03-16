@@ -36,6 +36,9 @@ let cart = [
 function renderCart() {
   const basketItems = document.getElementById("cart-items");
   const cartTotalWrapper = document.getElementById("cart-total-wrapper");
+  const emptyCartPlaceholder = document.getElementById("empty-cart-placeholder");
+  const subtotalPriceSpan = document.getElementById("subtotal");
+  const shippingCostPriceSpan = document.getElementById("shipping").textContent;
   const totalPriceSpan = document.getElementById("total");
 
   basketItems.innerHTML = "";
@@ -44,13 +47,17 @@ function renderCart() {
     basketItems.innerHTML += createCartItem(cartItem, index);
   });
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const subTotal = cart.reduce((sum, item) => sum + item.price, 0);
+  const total = subTotal + parseInt(shippingCostPriceSpan);
 
   if (cart.length > 0) {
+    subtotalPriceSpan.textContent = `${subTotal.toFixed(2)} CHF`;
     totalPriceSpan.textContent = `${total.toFixed(2)} CHF`;
     cartTotalWrapper.classList.add("visible");
+    emptyCartPlaceholder.classList.remove("visible");
   } else {
     cartTotalWrapper.classList.remove("visible");
+    emptyCartPlaceholder.classList.add("visible");
   }
 }
 
@@ -96,6 +103,20 @@ function removeItem(index) {
 
 function updatePrice(index) {
   cart[index].price = cart[index].basePrice * cart[index].amount;
+}
+
+// -----------------------------------------------------------
+// order confirmation
+// -----------------------------------------------------------
+
+document.getElementById("order-btn").addEventListener("click", successMessage);
+
+function successMessage() {
+  const cartContent = document.getElementById("cart-order-info");
+  const successMessage = document.getElementById("success-message");
+  cartContent.style.display = "none";
+  successMessage.style.display = "flex";
+  console.log("henlo");
 }
 
 // cart-items top calcualtion for correct sticky behaviour
