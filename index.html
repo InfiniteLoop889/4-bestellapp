@@ -7,6 +7,7 @@
     <title>Bestell App</title>
 
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/media-queries.css" />
     <link rel="icon" type="image/x-icon" href="./assets/icons/Favicon/favicon-32x32.png" />
 </head>
 
@@ -20,9 +21,12 @@
         <section class="left-content-wrapper">
             <div class="top-img"><img src="./assets/img/dish_img/title_img.jpg" alt="Burger Menu" /></div>
             <div class="dish-content-wrapper">
-                <h1>Quick Bite</h1>
-                <div class="rating">Bewertung (4.5 von 5 Sternen)</div>
-                <div id="categories-wrapper"></div>
+                <div class="header-section">
+                    <h1>Quick Bite</h1>
+                    <div class="rating">Bewertung (4.5 von 5 Sternen)</div>
+                    <div id="categories-wrapper"></div>
+                </div>
+
                 <div id="dishes-wrapper"></div>
             </div>
         </section>
@@ -42,7 +46,7 @@
                         <h3>Ganz schön leer hier – füge jetzt Artikel hinzu!</h3>
                     </div>
 
-                    <div id="cart-total-wrapper" class="cart-total-wrapper">
+                    <div id="cart-total-wrapper">
                         <div class="cart-total-line">
                             <div>Zwischensumme</div>
                             <div id="subtotal">0.00 CHF</div>
@@ -65,10 +69,18 @@
                     Deine Bestellung war erfolgreich und macht sich in Kürze auf den Weg!
                 </div>
 
+
+
             </div>
         </section>
 
     </main>
+
+    <section>
+        <button id="mobile-cart-btn">
+            <img src="./assets/icons/icons8-cart-64-white.png" alt="Mobile Cart Button">
+        </button>
+    </section>
 
     <footer>
         <p>© 2025 Bestell App</p>

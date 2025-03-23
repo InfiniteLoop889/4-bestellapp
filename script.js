@@ -116,15 +116,24 @@ function successMessage() {
   const successMessage = document.getElementById("success-message");
   cartContent.style.display = "none";
   successMessage.style.display = "flex";
-  console.log("henlo");
 }
 
-// cart-items top calcualtion for correct sticky behaviour
+// -----------------------------------------------------------
+// mobile cart button
+// -----------------------------------------------------------
 
-// function adjustCartItemsTop() {
-//   const cartHeader = document.querySelector(".cart-header");
-//   const cartItems = document.getElementById("cart-items");
-//   const headerHeight = cartHeader.offsetHeight;
-//   cartItems.style.top = `${headerHeight}px`;
-//   window.addEventListener("resize", adjustCartItemsTop);
-// }
+function toggleCart() {
+  const outerCartWrapper = document.querySelector(".outer-cart-wrapper");
+  outerCartWrapper.classList.toggle("show");
+}
+
+const cartBtn = document.getElementById("mobile-cart-btn");
+cartBtn.addEventListener("click", toggleCart);
+
+// -----------------------------------------------------------
+// functin initializing TODO
+// -----------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+  // todo
+});
