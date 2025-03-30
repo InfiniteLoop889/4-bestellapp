@@ -124,14 +124,25 @@ function successMessage() {
 
 function toggleCart() {
   const outerCartWrapper = document.querySelector(".outer-cart-wrapper");
-  outerCartWrapper.classList.toggle("show");
+
+  outerCartWrapper.classList.add("show");
 }
 
+function closeCart() {
+  const outerCartWrapper = document.querySelector(".outer-cart-wrapper");
+
+  outerCartWrapper.classList.remove("show");
+}
+
+// Event Listeners
 const cartBtn = document.getElementById("mobile-cart-btn");
+const closeMobileBtn = document.querySelector(".mobile-close-btn");
+
 cartBtn.addEventListener("click", toggleCart);
+closeMobileBtn.addEventListener("click", closeCart);
 
 // -----------------------------------------------------------
-// functin initializing TODO
+// functin initializing
 // -----------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
