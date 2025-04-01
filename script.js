@@ -25,13 +25,13 @@ function renderDishes() {
 // cart section
 // -----------------------------------------------------------
 
-let cart = [
-  { name: "asd", basePrice: 3.5, price: 3.5, amount: 1 },
-  { name: "fds", basePrice: 5.5, price: 5.5, amount: 1 },
-  { name: "asdv", basePrice: 6.5, price: 6.5, amount: 1 },
-];
+// let cart = [
+//   { name: "asd", basePrice: 3.5, price: 3.5, amount: 1 },
+//   { name: "fds", basePrice: 5.5, price: 5.5, amount: 1 },
+//   { name: "asdv", basePrice: 6.5, price: 6.5, amount: 1 },
+// ];
 
-// let cart = [];
+let cart = [];
 
 function renderCart() {
   const basketItems = document.getElementById("cart-items");
@@ -59,6 +59,8 @@ function renderCart() {
     cartTotalWrapper.classList.remove("visible");
     emptyCartPlaceholder.classList.add("visible");
   }
+
+  updateMobileAmtCart();
 }
 
 function addToCart(item) {
@@ -122,6 +124,12 @@ function successMessage() {
 // mobile cart button
 // -----------------------------------------------------------
 
+function updateMobileAmtCart() {
+  const cartCountElement = document.getElementById("mobile-amount-cart");
+  // cartCountElement.textContent = cart.length;
+  cartCountElement.textContent = cart.reduce((sum, item) => sum + item.amount, 0);
+}
+
 function toggleCart() {
   const outerCartWrapper = document.querySelector(".outer-cart-wrapper");
 
@@ -142,7 +150,7 @@ cartBtn.addEventListener("click", toggleCart);
 closeMobileBtn.addEventListener("click", closeCart);
 
 // -----------------------------------------------------------
-// functin initializing
+// function initializing
 // -----------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {

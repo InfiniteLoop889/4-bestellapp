@@ -223,10 +223,6 @@ h1 {
   display: none;
 }
 
-.mobile-close-btn:hover {
-  /* border-color: #ff8000; */
-}
-
 #cart-items {
   padding: 0 20px 0 20px;
 }
@@ -378,6 +374,20 @@ footer {
 /* ----------------------------------------------------------- */
 /* mobile cart button */
 /* ----------------------------------------------------------- */
+
+#mobile-amount-cart {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  right: -5px;
+  color: white;
+  border-radius: 50%;
+  background: red;
+}
 
 #mobile-cart-btn {
   display: none;
