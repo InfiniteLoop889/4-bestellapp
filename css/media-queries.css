@@ -22,7 +22,9 @@
   }
 
   .dish-item {
-    box-shadow: 0 0 6px #e4e4e4;
+    /* z-index example (no shadow overlap) */
+    /* box-shadow: 0 0 6px #e4e4e4; */
+    box-shadow: none;
     border-left: 0;
     border-right: 0;
   }
@@ -98,5 +100,34 @@
   .success-message-center {
     display: flex;
     justify-content: center;
+  }
+}
+
+@media (width <= 480px) {
+  header img,
+  .header-section,
+  .category-header,
+  .dish-info {
+    margin-left: 10px;
+  }
+
+  .dish-info {
+    margin-right: 10px;
+  }
+
+  .dish-button {
+    top: 10px;
+    right: 10px;
+  }
+
+  .cart-header,
+  #cart-items,
+  #cart-total-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #mobile-cart-btn {
+    right: 10px;
   }
 }
