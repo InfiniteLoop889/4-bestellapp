@@ -5,31 +5,29 @@
 function renderDishes() {
   const categoriesWrapper = document.getElementById("categories-wrapper");
   const dishesWrapper = document.getElementById("dishes-wrapper");
-  categoriesWrapper.innerHTML = "";
-  dishesWrapper.innerHTML = "";
+
+  let categoriesHTML = "";
+  let dishesHTML = "";
 
   for (let category in dishes) {
     let categoryData = dishes[category];
     let dishData = categoryData.items;
 
-    categoriesWrapper.innerHTML += createCategory(category);
-    dishesWrapper.innerHTML += createCategogryHeader(category, categoryData);
+    categoriesHTML += createCategory(category);
+    dishesHTML += createCategogryHeader(category, categoryData);
 
     dishData.forEach((dishItem) => {
-      dishesWrapper.innerHTML += createDishSection(dishItem);
+      dishesHTML += createDishSection(dishItem);
     });
   }
+
+  categoriesWrapper.innerHTML = categoriesHTML;
+  dishesWrapper.innerHTML = dishesHTML;
 }
 
 // -----------------------------------------------------------
 // cart section
 // -----------------------------------------------------------
-
-// let cart = [
-//   { name: "asd", basePrice: 3.5, price: 3.5, amount: 1 },
-//   { name: "fds", basePrice: 5.5, price: 5.5, amount: 1 },
-//   { name: "asdv", basePrice: 6.5, price: 6.5, amount: 1 },
-// ];
 
 let cart = [];
 
@@ -118,6 +116,13 @@ function successMessage() {
   const successMessage = document.getElementById("success-message");
   cartContent.style.display = "none";
   successMessage.style.display = "flex";
+
+  setTimeout(() => {
+    successMessage.style.display = "none";
+    cartContent.style.display = "block";
+    cart = [];
+    renderCart();
+  }, 5000);
 }
 
 // -----------------------------------------------------------
@@ -154,5 +159,6 @@ closeMobileBtn.addEventListener("click", closeCart);
 // -----------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
-  // todo
+  renderDishes();
+  renderCart();
 });
