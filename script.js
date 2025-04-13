@@ -31,33 +31,54 @@ function renderDishes() {
 
 let cart = [];
 
-function renderCart() {
-  const basketItems = document.getElementById("cart-items");
+function calculateSubTotal(cart) {
+  let sum = 0;
+  for (let i = 0; i < cart.length; i++) {
+    sum += cart[i].price;
+  }
+  return sum;
+}
+
+function calculateTotal(subTotal, shippingCost) {
+  return subTotal + parseInt(shippingCost);
+}
+
+function showCartContent(cart) {
   const cartTotalWrapper = document.getElementById("cart-total-wrapper");
   const emptyCartPlaceholder = document.getElementById("empty-cart-placeholder");
-  const subtotalPriceSpan = document.getElementById("subtotal");
-  const shippingCostPriceSpan = document.getElementById("shipping").textContent;
-  const totalPriceSpan = document.getElementById("total");
-
-  basketItems.innerHTML = "";
-
-  cart.forEach((cartItem, index) => {
-    basketItems.innerHTML += createCartItem(cartItem, index);
-  });
-
-  const subTotal = cart.reduce((sum, item) => sum + item.price, 0);
-  const total = subTotal + parseInt(shippingCostPriceSpan);
 
   if (cart.length > 0) {
-    subtotalPriceSpan.textContent = `${subTotal.toFixed(2)} CHF`;
-    totalPriceSpan.textContent = `${total.toFixed(2)} CHF`;
     cartTotalWrapper.classList.add("visible");
     emptyCartPlaceholder.classList.remove("visible");
   } else {
     cartTotalWrapper.classList.remove("visible");
     emptyCartPlaceholder.classList.add("visible");
   }
+}
 
+function updatePrices(subTotal, total) {
+  const subtotalPriceSpan = document.getElementById("subtotal");
+  const totalPriceSpan = document.getElementById("total");
+
+  subtotalPriceSpan.textContent = subTotal.toFixed(2) + " CHF";
+  totalPriceSpan.textContent = total.toFixed(2) + " CHF";
+}
+
+function renderCart() {
+  const basketItems = document.getElementById("cart-items");
+  const shippingCostPriceSpan = document.getElementById("shipping").textContent;
+
+  basketItems.innerHTML = "";
+
+  for (let i = 0; i < cart.length; i++) {
+    basketItems.innerHTML += createCartItem(cart[i], i);
+  }
+
+  const subTotal = calculateSubTotal(cart);
+  const total = calculateTotal(subTotal, shippingCostPriceSpan);
+
+  updatePrices(subTotal, total);
+  showCartContent(cart);
   updateMobileAmtCart();
 }
 
@@ -116,12 +137,12 @@ function successMessage() {
   const successMessage = document.getElementById("success-message");
   cartContent.style.display = "none";
   successMessage.style.display = "flex";
+  cart = [];
+  renderCart();
 
   setTimeout(() => {
     successMessage.style.display = "none";
     cartContent.style.display = "block";
-    cart = [];
-    renderCart();
   }, 5000);
 }
 
@@ -137,14 +158,14 @@ function updateMobileAmtCart() {
 
 function toggleCart() {
   const outerCartWrapper = document.querySelector(".outer-cart-wrapper");
-
   outerCartWrapper.classList.add("show");
+  document.body.style.overflow = "hidden";
 }
 
 function closeCart() {
   const outerCartWrapper = document.querySelector(".outer-cart-wrapper");
-
   outerCartWrapper.classList.remove("show");
+  document.body.style.overflow = "";
 }
 
 // Event Listeners

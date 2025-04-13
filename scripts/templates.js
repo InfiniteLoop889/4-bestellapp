@@ -36,7 +36,7 @@ function createDishSection(dishData) {
             name: '${dishData.name}',
             basePrice: ${dishData.basePrice.toFixed(2)},
           });">
-            <span class="cross">+</span>
+            <img src="./assets/icons/icons8-plus-24.png" alt="Add to cart" class="plus-icon">
         </button>
     </div>
   `;

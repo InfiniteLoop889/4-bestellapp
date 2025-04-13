@@ -186,10 +186,17 @@ h1 {
   font-size: 2rem;
   cursor: pointer;
   background-color: white;
-  user-select: none; /* Standard für die meisten Browser */
-  -webkit-user-select: none; /* Für Safari */
-  -moz-user-select: none; /* Für Firefox */
-  -ms-user-select: none; /* Für ältere IE-Versionen */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.plus-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  filter: invert(48%) sepia(97%) saturate(2476%) hue-rotate(0deg) brightness(118%) contrast(119%);
 }
 
 .dish-button:hover {
